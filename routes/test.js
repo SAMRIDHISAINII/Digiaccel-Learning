@@ -7,6 +7,7 @@ const verify = require("./verifyToken");
 router.route("/").post(async (req, res) => {
   const testid = req.body.pin;
   const email = req.body.email.toLowerCase();
+  
   const doc = await test.findOne({ pin: testid }).exec();
   if (!doc) {
     return res.status(400).send({ message: "Test doesn't exist!" });
